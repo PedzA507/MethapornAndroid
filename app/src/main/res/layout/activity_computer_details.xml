@@ -1,0 +1,233 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/phone_bg"
+    tools:context=".ComputerDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="352dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/button"
+            android:text="Computer Info"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editComputerId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edittext2"
+            android:hint="Computer ID"
+            android:inputType="number"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.453"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <EditText
+            android:id="@+id/editBrandName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext"
+            android:hint="Brand Name"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonChangeImage"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <EditText
+            android:id="@+id/editModelName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Model Name"
+            android:background="@drawable/edittext"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editBrandName"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editSerialNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Serial Number"
+            android:background="@drawable/edittext"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editModelName"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editStockQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Stock Quantity"
+            android:inputType="number"
+            android:background="@drawable/edittext"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editSerialNumber"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="numberDecimal"
+            android:background="@drawable/edittext"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editStockQuantity"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editCpuSpeed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="CPU Speed (GHz)"
+            android:inputType="numberDecimal"
+            android:background="@drawable/edittext"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editPrice"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editMemoryCapacity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Memory Capacity (GB)"
+            android:inputType="number"
+            android:background="@drawable/edittext"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editCpuSpeed"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editHardDiskCapacity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Hard Disk Capacity (GB)"
+            android:inputType="number"
+            android:background="@drawable/edittext"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editMemoryCapacity"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_marginTop="16dp"/>
+
+        <ImageView
+            android:id="@+id/imageComputer"
+            android:layout_width="321dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="30dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFetch" />
+
+        <Button
+            android:id="@+id/buttonFetch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button"
+            android:text="Fetch Details"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editComputerId"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <Button
+            android:id="@+id/buttonEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button"
+            android:text="Edit"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editHardDiskCapacity"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonEdit"
+            app:layout_constraintWidth_percent="0.6"/>
+
+        <Button
+            android:id="@+id/buttonChangeImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button"
+            android:text="Change Image"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageComputer"
+            app:layout_constraintWidth_percent="0.6"/>
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button"
+            android:text="Delete"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSave"
+            app:layout_constraintWidth_percent="0.6"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
