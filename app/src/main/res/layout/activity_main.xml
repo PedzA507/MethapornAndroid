@@ -9,9 +9,6 @@
     tools:context=".MainActivity">
 
     <!-- Header -->
-
-    <!-- Greeting Text -->
-
     <TextView
         android:id="@+id/headerText"
         android:layout_width="381dp"
@@ -30,6 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <!-- Greeting Text -->
     <TextView
         android:id="@+id/greetingText"
         android:layout_width="wrap_content"
@@ -43,10 +41,6 @@
         app:layout_constraintTop_toBottomOf="@+id/headerText" />
 
     <!-- Center Image -->
-
-    <!-- Add Computer Button -->
-
-    <!-- Computer Details Button -->
     <ImageView
         android:id="@+id/centerImage"
         android:layout_width="315dp"
@@ -58,10 +52,12 @@
         app:layout_constraintTop_toBottomOf="@+id/greetingText"
         app:layout_constraintVertical_bias="0.563" />
 
+    <!-- Add Computer Button -->
     <Button
         android:id="@+id/btnAddCom"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
+        android:layout_marginStart="5dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/button"
         android:text="Add Computer"
@@ -69,19 +65,40 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnComDetail"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewAll" />
+
+    <!-- Computer Details Button -->
+
+    <!-- View All Button -->
 
     <Button
         android:id="@+id/btnComDetail"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/button"
         android:text="Computer Details"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/btnAddCom" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/btnViewAll" />
+
+    <Button
+        android:id="@+id/btnViewAll"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button"
+        android:text="View All Computers"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@id/btnAddCom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/centerImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

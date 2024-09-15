@@ -98,6 +98,7 @@ class ComputerDetailsActivity : AppCompatActivity() {
                     if (success) {
                         Toast.makeText(this, "บันทึกข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show()
                         setEditingEnabled(false)
+                        // โหลดภาพจาก URL หลังจากบันทึกสำเร็จ
                         updatedImageUrl?.let {
                             loadImage(it, imageView)
                         }
@@ -109,6 +110,7 @@ class ComputerDetailsActivity : AppCompatActivity() {
                 }
             }
         }
+
 
         deleteButton.setOnClickListener {
             val computerId = computerIdEditText.text.toString()
@@ -134,9 +136,15 @@ class ComputerDetailsActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
             selectedImageUri = data.data
-            imageView.setImageURI(selectedImageUri) // Display selected image
+            // แสดงรูปภาพที่เลือกไว้ใน ImageView ทันที
+            Glide.with(this)
+                .load(selectedImageUri)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .into(imageView)
         }
     }
+
 
     private fun fetchComputerDetails(id: String, callback: (Computer?) -> Unit) {
         val client = OkHttpClient()
@@ -174,8 +182,9 @@ class ComputerDetailsActivity : AppCompatActivity() {
             .addFormDataPart("memoryCapacity", computer.memoryCapacity)
             .addFormDataPart("hardDiskCapacity", computer.hardDiskCapacity)
 
-        selectedImageUri?.let {
-            val file = getFileFromUri(it)
+        if (selectedImageUri != null) {
+            // มีการเปลี่ยนแปลงรูปภาพใหม่
+            val file = getFileFromUri(selectedImageUri!!)
             if (file != null && file.exists()) {
                 val requestBody = RequestBody.create("image/jpeg".toMediaTypeOrNull(), file)
                 requestBuilder.addFormDataPart("image", file.name, requestBody)
@@ -197,6 +206,10 @@ class ComputerDetailsActivity : AppCompatActivity() {
                     val jsonObject = JSONObject(responseBody ?: "")
                     jsonObject.optString("image", null)
                 } else null
+
+                // รีเซ็ตค่า selectedImageUri หลังจากบันทึกข้อมูลเสร็จ
+                selectedImageUri = null
+
                 callback(success, updatedImageUrl)
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -204,6 +217,8 @@ class ComputerDetailsActivity : AppCompatActivity() {
             }
         }.start()
     }
+
+
 
     private fun deleteComputerDetails(id: String, callback: (Boolean) -> Unit) {
         val client = OkHttpClient()
@@ -323,7 +338,9 @@ class ComputerDetailsActivity : AppCompatActivity() {
         memoryCapacityEditText.text.clear()
         hardDiskCapacityEditText.text.clear()
         imageView.setImageResource(R.drawable.placeholder)
+        selectedImageUri = null // รีเซ็ตค่า selectedImageUri
     }
+
 
     private fun createComputerFromFields(computerId: String): Computer {
         return Computer(

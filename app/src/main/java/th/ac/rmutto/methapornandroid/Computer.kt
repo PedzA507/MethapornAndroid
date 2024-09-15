@@ -12,4 +12,3 @@ data class Computer(
     val hardDiskCapacity: String,
     val image: String?
 )
-

@@ -24,6 +24,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ComputerDetailsActivity::class.java)
             startActivity(intent)
         }
+
+        // ปุ่ม View All Computers
+        findViewById<Button>(R.id.btnViewAll).setOnClickListener {
+            // โค้ดสำหรับเปิดหน้า View All Computers
+            val intent = Intent(this, ViewAllActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 
